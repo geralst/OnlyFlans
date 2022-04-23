@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'content' %}
+<div class="container my-5">
+    <div class="col-12 col-md-6 offset-0 offset-md-3 mt-4 mb-4">
+        <h3 class="text-center">
+            Iniciar Sesión
+        </h3>
+    </div>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <p class="text-center">
+            Tu usuario y contraseña no corresponden. Intentalo otra vez.
+        </p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+            <p>
+                Tienes que estar logeado para acceder a esta pagina. Procesede a logearte para tener acceso
+            </p>
+            {% else %}
+            <p class="text-center">Logeate para tener acceso a la pagina</p>
+            {% endif %}
+        {% endif %}
+    <div class="mb-3 text-center">
+        <label for="{{ form.username.id_for_label }}" class="form-label">
+            Nombre de Usuario:
+            <!--{{ form.username.label_tag }} trae el nombre de username propio de django-->
+        </label>
+        <div>
+            {{ form.username }}
+        </div>
+    </div>
+    <div class="mb-3 text-center">
+        <label for="{{ form.password.id_for_label }}" class="form-label">
+            Contraseña:
+            <!--{{ form.password.label_tag }}-->
+        </label>
+        <div>
+            {{ form.password }}
+        </div>
+        <div class="my-3 text-center">
+            <input class="btn btn-primary" type="submit" value="login">
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

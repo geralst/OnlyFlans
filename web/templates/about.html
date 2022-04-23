@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<body>
+    {% block 'content' %}
+    <div class="container my-5">
+        <div class="text-center">
+            <img src="{% static 'img/logo_small_icon_only_inverted.png' %}" alt="" height="200px">
+        </div>
+        <div>
+            <h1 class="display-4 text-center my-3">Acerca de nosotros</h1>
+        </div>
+        <figure class="text-center">
+            <blockquote class="blockquote">
+              <h6><em>Los pasteles prohibidos son los mas deliciosos.</em></h6>
+            </blockquote>
+        </figure>
+        <p class="text-center my-5">
+            OnlyFlans es una empresa enfocada en el mundo de la pastelería y los postres, en especial
+            en la venta de flan(de ahí su nombre), nace en 2021 en santiago de chile como una empresa
+            familiar que pretende entregar productos de calidad a su clientela, estando ubicada en
+            providencia, a pasos del metro Parque Bustamante.
+        </p>
+    </div>
+    {% endblock %}
+</body>
+</html>
